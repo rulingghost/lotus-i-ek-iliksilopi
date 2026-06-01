@@ -25,11 +25,9 @@
     <header class="glassmorphism" id="main-header">
         <div class="header-container">
             <a href="#" class="logo" id="logo-link">
-                <div class="logo-circle">
-                    <!-- Detaylı Lotus Çiçeği Logosu -->
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12,2C11.5,4 9.5,7 7,8C9,9 11,9.5 12,12C13,9.5 15,9 17,8C14.5,7 12.5,4 12,2M12,13C10.5,14.5 8,15 6,15.5C8,16.5 10,18 10.5,20C11.5,18 12.5,18 13.5,20C14,18 16,16.5 18,15.5C16,15 13.5,14.5 12,13M12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22Z"/>
-                    </svg>
+                <div class="logo-circle" style="background: none; box-shadow: none;">
+                    <!-- Sizin Gönderdiğiniz Gerçek Logo (assets/logo.png olarak kaydedilmeli) -->
+                    <img src="assets/logo.png" alt="Lotus Çiçekçilik Logosu" style="width: 48px; height: 48px; border-radius: 50%; object-fit: contain;">
                 </div>
                 <div class="logo-text">
                     <span class="logo-title">Lotus Çiçekçilik</span>
@@ -238,7 +236,7 @@
 
             <!-- Silopi Google Haritalar Konumu -->
             <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12759.57022137684!2d42.47895089332219!3d37.24794833215887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40097f48039c2941%3A0xe5a1c0d517c2f026!2sSilopi%2C%20%C5%9E%C4%B1rnak!5e0!3m2!1str!2str!4v1717220000000!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps?q=Lotus+Çiçekçilik,+Silopi,+Şırnak&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -248,38 +246,6 @@
         <p>&copy; 2026 <a href="#">Lotus Çiçekçilik</a> - Silopi. Tüm Hakları Saklıdır.</p>
         <p style="font-size: 0.7rem; margin-top: 6px; color: var(--text-muted);">Premium Mobil Deneyim</p>
     </footer>
-
-    <!-- --- AKILLI MOBİL BOTTOM NAVIGATION BAR --- -->
-    <div class="bottom-nav glassmorphism">
-        <a href="#home" class="bottom-nav-item active" id="nav-btn-home">
-            <!-- Ev İkonu -->
-            <svg viewBox="0 0 24 24">
-                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-            </svg>
-            Ana Sayfa
-        </a>
-        <a href="#catalog" class="bottom-nav-item" id="nav-btn-catalog">
-            <!-- Mağaza / Çiçek İkonu -->
-            <svg viewBox="0 0 24 24">
-                <path d="M12 2c1.1 0 2 .9 2 2v1.1c2.4.4 4.4 2.4 4.8 4.8H20c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2h-1.2c-.4 2.4-2.4 4.4-4.8 4.8V20c0 1.1-.9 2-2 2s-2-.9-2-2v-1.2c-2.4-.4-4.4-2.4-4.8-4.8H4c-1.1 0-2-.9-2-2v-2c0-1.1.9-2 2-2h1.2C5.6 7.5 7.6 5.5 10 5.1V4c0-1.1.9-2 2-2zm0 6c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/>
-            </svg>
-            Ürünler
-        </a>
-        <a href="javascript:void(0)" class="bottom-nav-item special-wp" onclick="openOrderModal('Alt Menü Özel Sipariş')" id="nav-btn-special">
-            <!-- Sihirli Çubuk / Hızlı Sipariş İkonu -->
-            <svg viewBox="0 0 24 24" style="fill: var(--accent-emerald);">
-                <path d="M7.5 5.6L10 7 8.6 4.5 10 2 7.5 3.4 5 2l1.4 2.5L5 7zm12 9.8L17 14l1.4 2.5-2.5-1.4-2.5 1.4 1.4-2.5-1.4-2.5 2.5 1.4zM22 2l-2.5 1.4L17 2l1.4 2.5-1.4 2.5 2.5-1.4L22 7.5zm-5.1 7.4l-3.3-3.3c-.4-.4-1-.4-1.4 0l-9.9 9.9c-.4.4-.4 1 0 1.4l3.3 3.3c.4.4 1 .4 1.4 0l9.9-9.9c.4-.4.4-1 0-1.4zm-11.8 10l-1.9-1.9 8.2-8.2 1.9 1.9-8.2 8.2z"/>
-            </svg>
-            Özel Sipariş
-        </a>
-        <a href="#contact" class="bottom-nav-item" id="nav-btn-contact">
-            <!-- Adres İletişim İkonu -->
-            <svg viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            İletişim
-        </a>
-    </div>
 
     <!-- --- AKILLI WHATSAPP SİPARİŞ ASİSTANI (OTO MESAJ YAPISI) --- -->
     <div class="wp-assistant" id="whatsapp-assistant">

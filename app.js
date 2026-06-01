@@ -183,15 +183,12 @@ function setupScrollInteractions() {
     const sections = document.querySelectorAll("section[id]");
     const navItems = {
         "home": [
-            document.getElementById("nav-btn-home"),
             document.querySelector('.desktop-nav a[href="#home"]')
         ],
         "catalog": [
-            document.getElementById("nav-btn-catalog"),
             document.querySelector('.desktop-nav a[href="#catalog"]')
         ],
         "contact": [
-            document.getElementById("nav-btn-contact"),
             document.querySelector('.desktop-nav a[href="#contact"]')
         ]
     };

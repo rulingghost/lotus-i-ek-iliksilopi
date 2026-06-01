@@ -56,7 +56,7 @@ html {
 
 body {
     background-color: var(--bg-base);
-    background-image: linear-gradient(rgba(251, 250, 247, 0.85), rgba(251, 250, 247, 0.95)), url('assets/bg_luxury.png');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7)), url('assets/bg_luxury.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -64,7 +64,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.5;
     overflow-x: hidden;
-    padding-bottom: calc(var(--bottom-nav-height) + 16px);
+    padding-bottom: 0;
 }
 
 /* Özel Scrollbar */
