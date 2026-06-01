@@ -56,11 +56,15 @@ html {
 
 body {
     background-color: var(--bg-base);
+    background-image: linear-gradient(rgba(251, 250, 247, 0.85), rgba(251, 250, 247, 0.95)), url('assets/bg_luxury.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.5;
     overflow-x: hidden;
-    padding-bottom: calc(var(--bottom-nav-height) + 16px); /* Mobil alt menü payı */
+    padding-bottom: calc(var(--bottom-nav-height) + 16px);
 }
 
 /* Özel Scrollbar */
@@ -1222,4 +1226,21 @@ textarea.form-control {
     0% { transform: scale(1); }
     50% { transform: scale(1.08); }
     100% { transform: scale(1); }
+}
+
+/* YENİ GELİŞMİŞ ANİMASYONLAR (Fade Up & Staggered) */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
 }

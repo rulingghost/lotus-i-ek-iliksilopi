@@ -14,7 +14,7 @@ const PRODUCTS_DATA = [
         category: "buket",
         categoryName: "Lüks Buketler",
         description: "Elit İskandinav tarzı krem rengi ambalajda sunulan, birinci sınıf iri beyaz güllerin zarafet dolu tasarımı.",
-        image: "https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=600&auto=format&fit=crop",
+        image: "assets/buket_1.png",
         badge: "Çok Popüler"
     },
     {
@@ -23,7 +23,7 @@ const PRODUCTS_DATA = [
         category: "buket",
         categoryName: "Bahar Buketleri",
         description: "Soft pembe güller, dolgun taze ortancalar ve okaliptüs yapraklarının rüya gibi bir araya gelişi.",
-        image: "https://images.unsplash.com/photo-1533616688419-b7a585564566?q=80&w=600&auto=format&fit=crop",
+        image: "assets/buket_2.png",
         badge: "Yeni Sezon"
     },
     {
@@ -32,7 +32,7 @@ const PRODUCTS_DATA = [
         category: "buket",
         categoryName: "Tasarım Buketler",
         description: "Doğal tonlarda şık ambalajıyla hazırlanan pastel laleler ve mevsimin en asil kır çiçekleri kombinasyonu.",
-        image: "https://images.unsplash.com/photo-1562244970-70a0b2fa3d40?q=80&w=600&auto=format&fit=crop",
+        image: "assets/buket_3.png",
         badge: "Haftanın Tasarımı"
     },
     {
@@ -41,7 +41,7 @@ const PRODUCTS_DATA = [
         category: "cikolata",
         categoryName: "Söz & Nişan",
         description: "Lüks altın rengi sunum tepside, el yapımı taze Belçika çikolataları ve şık taze çiçek süslemeleri.",
-        image: "https://images.unsplash.com/photo-1549007994-cb92ca813bec?q=80&w=600&auto=format&fit=crop",
+        image: "assets/cikolata_1.png",
         badge: "Lüks Sunum"
     },
     {
@@ -50,7 +50,7 @@ const PRODUCTS_DATA = [
         category: "saksi",
         categoryName: "Saksı Çiçekleri",
         description: "Büyük dolgun çiçekli beyaz çift dallı orkide, minimalist modern mat seramik saksı içerisinde kalıcı bir hediye.",
-        image: "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=600&auto=format&fit=crop",
+        image: "assets/saksi_1.png",
         badge: "Ev & Ofis"
     },
     {
@@ -59,7 +59,7 @@ const PRODUCTS_DATA = [
         category: "aranjman",
         categoryName: "Masa Aranjmanları",
         description: "Özel tasarım minimalist beton saksıda, soft tonlarda ithal kuru pampas ve canlı çiçeklerin mükemmel uyumu.",
-        image: "https://images.unsplash.com/photo-1522819866576-259000a3c27b?q=80&w=600&auto=format&fit=crop",
+        image: "assets/aranjman_1.png",
         badge: "Tasarım Ödüllü"
     },
     {
@@ -68,7 +68,7 @@ const PRODUCTS_DATA = [
         category: "yapay",
         categoryName: "Yapay Çiçek Dekor",
         description: "Yıllarca ilk günkü zarafetini koruyan, İskandinav tarzı cam vazo içerisinde kurutulmuş seçkin botanik dekor seti.",
-        image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=600&auto=format&fit=crop",
+        image: "assets/yapay_1.png",
         badge: "Solmayan Sanat"
     },
     {
@@ -77,7 +77,7 @@ const PRODUCTS_DATA = [
         category: "arac",
         categoryName: "Araç Süsleme",
         description: "Canlı beyaz güller, taze okaliptüs yaprakları ve sade şifon tüllerle hazırlanan son derece zarif araç süsleme konsepti.",
-        image: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop",
+        image: "assets/arac_1.png",
         badge: "Rezervasyonlu"
     }
 ];
@@ -112,9 +112,9 @@ function renderProducts(categoryFilter = "all") {
         ? PRODUCTS_DATA 
         : PRODUCTS_DATA.filter(p => p.category === categoryFilter);
         
-    filteredProducts.forEach(product => {
+    filteredProducts.forEach((product, index) => {
         const cardHTML = `
-            <div class="product-card">
+            <div class="product-card animate-fade-up" style="animation-delay: ${index * 0.08}s;">
                 ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
                 <div class="product-image-container">
                     <img src="${product.image}" alt="${product.title}" loading="lazy">
