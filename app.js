@@ -1,137 +1,120 @@
 /**
- * Lotus Çiçekçilik - Premium Mobil Entegrasyon & WhatsApp Otomasyon Kontrolörü
+ * Lotus Çiçekçilik - Premium Mobil Entegrasyon & Fiyatsız Sipariş Kontrolörü
  * Tasarım ve İşlevsellik: Antigravity AI
  */
 
 // --- SABİT YAPILANDIRMALAR ---
 const WHATSAPP_PHONE = "905330204373"; // Lotus Çiçekçilik Silopi Telefon Numarası (+90 533 020 4373)
 
-// Ürün Kataloğu Veri Tabanı (Lüks ve Gerçekçi Görsellerle Optimize Edilmiştir)
+// Premium Ürün Kataloğu Veri Tabanı (Sanatsal & Ultra Yüksek Kaliteli Çiçekler)
 const PRODUCTS_DATA = [
     {
         id: 1,
-        title: "Kraliyet Aşkı Kırmızı Gül Buketi",
+        title: "Kraliyet Aşkı Beyaz Gül Buketi",
         category: "buket",
         categoryName: "Lüks Buketler",
-        description: "En taze kırmızı ithal güller, şık premium ambalaj tasarımı ile sevdiğiniz için göz kamaştırıcı bir zarafet sunar.",
-        price: "450 TL",
-        image: "https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600&auto=format&fit=crop",
-        badge: "En Çok Satan"
+        description: "Elit İskandinav tarzı krem rengi ambalajda sunulan, birinci sınıf iri beyaz güllerin zarafet dolu tasarımı.",
+        image: "https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=600&auto=format&fit=crop",
+        badge: "Çok Popüler"
     },
     {
         id: 2,
-        title: "Beyaz Papatya ve Krizantem Rüyası",
+        title: "Masalsı Ortanca ve Pastel Gül Buketi",
         category: "buket",
         categoryName: "Bahar Buketleri",
-        description: "Doğanın en saf halini yansıtan beyaz kır papatyaları ve renkli krizantemlerin muhteşem kır sepeti uyumu.",
-        price: "350 TL",
-        image: "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600&auto=format&fit=crop",
-        badge: "Yeni Ürün"
+        description: "Soft pembe güller, dolgun taze ortancalar ve okaliptüs yapraklarının rüya gibi bir araya gelişi.",
+        image: "https://images.unsplash.com/photo-1533616688419-b7a585564566?q=80&w=600&auto=format&fit=crop",
+        badge: "Yeni Sezon"
     },
     {
         id: 3,
-        title: "Lüks Şakayık ve Soft Pembe Gül Buketi",
+        title: "Zarif Lale ve Kır Çiçekleri Buketi",
         category: "buket",
-        categoryName: "Tasarım Aranjmanlar",
-        description: "Açık pembe güller, dolgun şakayıklar ve okaliptüs yaprakları ile bezenmiş son derece asil bir konsept.",
-        price: "600 TL",
-        image: "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=600&auto=format&fit=crop",
-        badge: "Özel Tasarım"
+        categoryName: "Tasarım Buketler",
+        description: "Doğal tonlarda şık ambalajıyla hazırlanan pastel laleler ve mevsimin en asil kır çiçekleri kombinasyonu.",
+        image: "https://images.unsplash.com/photo-1562244970-70a0b2fa3d40?q=80&w=600&auto=format&fit=crop",
+        badge: "Haftanın Tasarımı"
     },
     {
         id: 4,
-        title: "Kız İsteme & Söz Çikolatası Gümüş Tepsi",
+        title: "Söz & Nişan Premium Çikolata Gondolu",
         category: "cikolata",
         categoryName: "Söz & Nişan",
-        description: "Lüks gümüş gondol tepsi içerisinde özenle dizilmiş, üzeri canlı çiçeklerle süslenmiş elit Belçika çikolataları.",
-        price: "750 TL",
-        image: "https://images.unsplash.com/photo-1548907040-4d42b5213b3e?q=80&w=600&auto=format&fit=crop",
-        badge: "Göz Alıcı"
+        description: "Lüks altın rengi sunum tepside, el yapımı taze Belçika çikolataları ve şık taze çiçek süslemeleri.",
+        image: "https://images.unsplash.com/photo-1549007994-cb92ca813bec?q=80&w=600&auto=format&fit=crop",
+        badge: "Lüks Sunum"
     },
     {
         id: 5,
-        title: "Lüks Çift Dallı Beyaz Yapay Orkide",
-        category: "yapay",
-        categoryName: "Yapay Çiçek Dekor",
-        description: "Gerçek dokulu yapay orkideler ve birinci sınıf seramik vazo. Ev ve ofis dekorasyonları için solmayan kalıcı lüks.",
-        price: "850 TL",
-        image: "https://images.unsplash.com/photo-1545241047-6083a3684587?q=80&w=600&auto=format&fit=crop",
-        badge: "Solmayan Lüks"
+        title: "Asil Beyaz Orkide Seramik Saksı",
+        category: "saksi",
+        categoryName: "Saksı Çiçekleri",
+        description: "Büyük dolgun çiçekli beyaz çift dallı orkide, minimalist modern mat seramik saksı içerisinde kalıcı bir hediye.",
+        image: "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=600&auto=format&fit=crop",
+        badge: "Ev & Ofis"
     },
     {
         id: 6,
-        title: "Masalsı Seramik Vazo Aranjmanı",
+        title: "Modern Rustik Masa Aranjmanı",
         category: "aranjman",
         categoryName: "Masa Aranjmanları",
-        description: "Premium ithal çiçeklerin, şık geometrik seramik saksıda bir araya gelmesiyle oluşan modern masaüstü tasarımı.",
-        price: "500 TL",
-        image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=600&auto=format&fit=crop",
-        badge: "Premium"
+        description: "Özel tasarım minimalist beton saksıda, soft tonlarda ithal kuru pampas ve canlı çiçeklerin mükemmel uyumu.",
+        image: "https://images.unsplash.com/photo-1522819866576-259000a3c27b?q=80&w=600&auto=format&fit=crop",
+        badge: "Tasarım Ödüllü"
     },
     {
         id: 7,
-        title: "Premium Gelin Arabası Süsleme Konsepti",
-        category: "arac",
-        categoryName: "Araç Süsleme",
-        description: "Canlı gül aranjmanları, tüller ve arka plaka kişiselleştirmeleri ile düğününüzün en dikkat çekici detayını tasarlıyoruz.",
-        price: "Fiyat Sorun",
-        image: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop",
-        badge: "Rezervasyonlu"
+        title: "Minimalist Kurutulmuş Çiçek & Pampas Vazosu",
+        category: "yapay",
+        categoryName: "Yapay Çiçek Dekor",
+        description: "Yıllarca ilk günkü zarafetini koruyan, İskandinav tarzı cam vazo içerisinde kurutulmuş seçkin botanik dekor seti.",
+        image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=600&auto=format&fit=crop",
+        badge: "Solmayan Sanat"
     },
     {
         id: 8,
-        title: "Egzotik Saksı Çiçeği (Monstera Deve Tabanı)",
-        category: "saksi",
-        categoryName: "Saksı Çiçekleri",
-        description: "Büyük, delikli yemyeşil yaprakları ile yaşam alanlarınıza botanik bir hava katacak birinci sınıf sağlıklı Monstera çiçeği.",
-        price: "400 TL",
-        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop",
-        badge: "Havadar & Taze"
+        title: "Gelin Arabası Premium Süsleme Tasarımı",
+        category: "arac",
+        categoryName: "Araç Süsleme",
+        description: "Canlı beyaz güller, taze okaliptüs yaprakları ve sade şifon tüllerle hazırlanan son derece zarif araç süsleme konsepti.",
+        image: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop",
+        badge: "Rezervasyonlu"
     }
 ];
 
 // --- SAYFA BAŞLANGIÇ AYARLARI ---
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Ürünleri Sayfaya Yükle (Tümü Kategorisiyle)
+    // 1. Ürünleri Yükle (Tümü Filtresiyle)
     renderProducts("all");
     
-    // 2. Kategori Butonları Tıklama Olayları
+    // 2. Kategori Seçici Filtreleri
     setupCategoryFilters();
     
-    // 3. Scroll Efektleri ve Bottom Navigation Takipçisi
+    // 3. Scroll Takipçisi ve Bottom/Masaüstü Aktif Link Senkronizasyonu
     setupScrollInteractions();
     
-    // 4. Form İçin Varsayılan Tarihi Bugün Yap
+    // 4. Form Tarihini Bugünün Tarihine Ayarla
     const dateInput = document.getElementById("form-date");
     if(dateInput) {
         const today = new Date().toISOString().split('T')[0];
         dateInput.value = today;
     }
-    
-    // 5. Asistan Bildirim Efekti (3 saniye sonra asistan baloncuğunda küçük bir sallantı yaratır)
-    setTimeout(() => {
-        const trigger = document.getElementById("wp-trigger-btn");
-        if(trigger) {
-            trigger.style.animation = "bounce-float 1.5s ease-in-out infinite, pulse-scale 1.5s infinite";
-        }
-    }, 3000);
 });
 
-// --- ÜRÜN RENDER ETME MOTORU ---
+// --- ÜRÜN KARTLARINI OLUŞTURMA MOTORU (FİYATSIZ MİMARİ) ---
 function renderProducts(categoryFilter = "all") {
     const gridContainer = document.getElementById("products-grid-container");
     if (!gridContainer) return;
     
     gridContainer.innerHTML = ""; // Mevcut kartları temizle
     
-    // Filtreleme mantığı
     const filteredProducts = categoryFilter === "all" 
         ? PRODUCTS_DATA 
         : PRODUCTS_DATA.filter(p => p.category === categoryFilter);
         
     filteredProducts.forEach(product => {
         const cardHTML = `
-            <div class="product-card glassmorphism">
+            <div class="product-card">
                 ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
                 <div class="product-image-container">
                     <img src="${product.image}" alt="${product.title}" loading="lazy">
@@ -144,14 +127,11 @@ function renderProducts(categoryFilter = "all") {
                     <h3 class="product-title">${product.title}</h3>
                     <p class="product-description">${product.description}</p>
                     <div class="product-footer">
-                        <div class="product-price">
-                            <span class="product-price-label">Fiyat</span>
-                            <span class="product-price-amount ${product.price === 'Fiyat Sorun' ? 'custom-price' : ''}">${product.price}</span>
-                        </div>
-                        <button class="btn-order-wp" onclick="orderProduct('${product.title}', '${product.price}')" aria-label="WhatsApp ile Sipariş Et">
+                        <button class="btn-order-wp-full" onclick="orderProduct('${product.title}')" aria-label="WhatsApp ile Sipariş Ver">
                             <svg viewBox="0 0 24 24">
                                 <path d="M12.012 2c-5.506 0-9.988 4.478-9.988 9.984 0 1.83.498 3.542 1.362 5.02L2 22l5.148-1.336c1.428.784 3.06 1.232 4.792 1.232 5.508 0 9.988-4.478 9.988-9.984C21.928 6.478 17.448 2 12.012 2zm6.276 13.9c-.276.774-1.374 1.4-1.896 1.488-.474.078-1.092.126-3.192-.744-2.682-1.11-4.41-3.846-4.542-4.026-.132-.18-1.074-1.428-1.074-2.724 0-1.296.678-1.932.918-2.19.24-.258.528-.324.708-.324.18 0 .366.006.522.012.168.006.396-.066.618.474.228.558.78 1.902.846 2.04.066.138.108.3.018.486-.09.18-.138.3-.276.462-.138.162-.294.36-.42.486-.144.138-.294.288-.126.576.168.288.75 1.236 1.614 2.004.9.804 1.776 1.056 2.076 1.206.3.15.474.126.654-.078.18-.21.78-.906.99-1.218.21-.312.42-.258.708-.15.288.108 1.836.864 2.154 1.02.318.156.528.234.606.366.078.132.078.762-.198 1.536z"/>
                             </svg>
+                            Sipariş & Bilgi Al
                         </button>
                     </div>
                 </div>
@@ -161,23 +141,21 @@ function renderProducts(categoryFilter = "all") {
     });
 }
 
-// --- FİLTRELEME OLAYLARI ---
+// --- KATEGORİ FİLTRELEME OLAYLARI ---
 function setupCategoryFilters() {
     const pills = document.querySelectorAll(".category-pill");
     pills.forEach(pill => {
         pill.addEventListener("click", () => {
-            // Aktif sınıfını düzenle
             pills.forEach(p => p.classList.remove("active"));
             pill.classList.add("active");
             
-            // Ürünleri render et
             const selectedCat = pill.getAttribute("data-category");
             renderProducts(selectedCat);
             
-            // Kullanıcı tıkladığında ilgili yere yumuşak kaydır
+            // Kategori seçilince pürüzsüz kaydırma yap
             const catalogSection = document.getElementById("catalog");
             if (catalogSection) {
-                const headerOffset = 100;
+                const headerOffset = 80;
                 const elementPosition = catalogSection.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 
@@ -190,20 +168,18 @@ function setupCategoryFilters() {
     });
 }
 
-// --- SCROLL ETKİLEŞİMLERİ & BOTTOM NAV TAKİPÇİSİ ---
+// --- SCROLL TAKİPÇİSİ & AKTİF MENÜ BAĞLANTILARI ---
 function setupScrollInteractions() {
     const header = document.getElementById("main-header");
     
-    // Header sayfa kaydırıldıkça camlaşır/küçülür
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 40) {
             header.classList.add("scrolled");
         } else {
             header.classList.remove("scrolled");
         }
     });
 
-    // Sayfa bölümlerini izleyip Alt Menüyü (Bottom Nav) ve Masaüstü Menüyü aktif eden IntersectionObserver
     const sections = document.querySelectorAll("section[id]");
     const navItems = {
         "home": [
@@ -223,7 +199,7 @@ function setupScrollInteractions() {
     const observerOptions = {
         root: null,
         rootMargin: "0px",
-        threshold: 0.35 // Ekranın %35'i kaplandığında tetiklenir
+        threshold: 0.3
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -231,14 +207,12 @@ function setupScrollInteractions() {
             if (entry.isIntersecting) {
                 const id = entry.target.getAttribute("id");
                 
-                // Aktif sınıfları temizle
                 Object.values(navItems).forEach(items => {
                     items.forEach(item => {
                         if (item) item.classList.remove("active");
                     });
                 });
                 
-                // İlgili butonu aktif yap
                 if (navItems[id]) {
                     navItems[id].forEach(item => {
                         if (item) item.classList.add("active");
@@ -255,61 +229,58 @@ function setupScrollInteractions() {
     });
 }
 
-// --- WHATSAPP ASİSTAN PANELİ (OTO MESAJLAR) ---
+// --- WHATSAPP YÖNLENDİRME & ASİSTAN YÖNETİMİ ---
 function toggleWpAssistant() {
     const bubble = document.getElementById("wp-chat-bubble");
     const badge = document.querySelector(".wp-badge-count");
     
     if (bubble) {
         const isOpen = bubble.classList.toggle("open");
-        
-        // Asistan açıldığında okunmamış mesaj sayısı balonu gizlensin
         if (isOpen && badge) {
             badge.style.display = "none";
         }
     }
 }
 
-// Canlı Asistandaki Seçenekler İçin Otomatik Mesaj Gönderme
+// Canlı Asistandan Hazır Fiyatsız Yönlendirme Mesajları
 function sendAutoMessage(msgType) {
     let rawText = "";
     
     switch (msgType) {
         case "buket_fiyat":
-            rawText = "Merhaba Lotus Çiçekçilik, web siteniz üzerinden özel bir buket tasarım siparişi veya fiyat teklifi almak istiyorum. Yardımcı olabilir misiniz? 🌸";
+            rawText = "Merhaba Lotus Çiçekçilik, web siteniz üzerinde yer alan özel buket tasarımlarınız hakkında bilgi alabilir ve kişiye özel bir sipariş oluşturabilir miyim? 🌸";
             break;
         case "arac_susleme":
-            rawText = "Merhaba, düğünümüz için gelin arabası süsleme modelleriniz ve fiyat politikanız hakkında detaylı bilgi alabilir miyiz? 🚗";
+            rawText = "Merhaba, düğünümüz için gelin arabası süsleme modelleriniz, müsaitlik durumunuz ve rezervasyon süreci hakkında bilgi alabilir miyiz? 🚗";
             break;
         case "cikolata_kutu":
-            rawText = "Merhaba, nişan/söz merasimimiz için özel tasarım süslü çikolata kutuları ve tepsi seçeneklerinizin fotoğraflarını ve fiyatlarını öğrenebilir miyim? 🍫";
+            rawText = "Merhaba, söz ve nişan merasimimiz için hazırladığınız özel süslemeli kız isteme çikolata kutusu modelleri hakkında bilgi alabilir miyim? 🍫";
             break;
         case "konum_adresi":
-            rawText = "Merhaba Lotus Çiçekçilik, dükkanınızı ziyaret etmek istiyorum. Silopi Yenişehir mahallesindeki açık adresinizi veya yol tarifinizi iletebilir misiniz? 📍";
+            rawText = "Merhaba, Silopi Yenişehir mahallesindeki butik mağazanızı ziyaret etmek istiyorum. Tam konum veya yol tarifi gönderebilir misiniz? 📍";
             break;
         default:
-            rawText = "Merhaba, bilgi almak istiyorum.";
+            rawText = "Merhaba, tasarım çiçekleriniz hakkında bilgi alabilir miyim?";
     }
     
     redirectToWhatsApp(rawText);
 }
 
 // --- ÜRÜN KARTINDAN DOĞRUDAN WHATSAPP SİPARİŞİ ---
-function orderProduct(title, price) {
-    const msg = `Merhaba Lotus Çiçekçilik, web siteniz üzerinden **"${title}"** ürününüzü beğendim. Sipariş oluşturmak ve bilgi almak istiyorum. 🌸\n\n💰 Ürün Fiyatı: ${price}`;
+function orderProduct(title) {
+    const msg = `Merhaba Lotus Çiçekçilik, web sitenizde yer alan **"${title}"** tasarımınızı çok beğendim. Stok durumu, detaylar ve sipariş süreci hakkında bilgi alabilir miyim? 🌸`;
     redirectToWhatsApp(msg);
 }
 
-// --- ÖZEL SİPARİŞ MODALI VE FORM YÖNETİMİ ---
+// --- ÖZEL SİPARİŞ MODAL FORMU ---
 function openOrderModal(sourceType) {
     const modal = document.getElementById("order-modal-overlay");
     const formType = document.getElementById("form-item-type");
     
     if (modal) {
         modal.classList.add("open");
-        document.body.style.overflow = "hidden"; // Sayfa kaydırmasını engelle
+        document.body.style.overflow = "hidden";
         
-        // Sipariş kaynağını kaydet
         if (formType) {
             formType.value = sourceType;
         }
@@ -320,59 +291,48 @@ function closeOrderModal() {
     const modal = document.getElementById("order-modal-overlay");
     if (modal) {
         modal.classList.remove("open");
-        document.body.style.overflow = ""; // Kaydırmayı normale döndür
+        document.body.style.overflow = "";
     }
 }
 
-// Özel Sipariş Form Gönderimi (Verileri Şık Bir Metne Çevirir)
+// Özel Sipariş Form Gönderimi (Bütçesiz & Fiyatsız Sade Metin Fişi)
 function handleFormSubmit(event) {
     event.preventDefault();
     
     const name = document.getElementById("form-name").value.trim();
     const dateInput = document.getElementById("form-date").value;
-    const budget = document.getElementById("form-budget").value;
     const note = document.getElementById("form-note").value.trim();
     const sourceType = document.getElementById("form-item-type").value;
     
-    // Tarihi daha okunaklı formata çevirme (Gün-Ay-Yıl)
     let formattedDate = dateInput;
     if (dateInput) {
         const parts = dateInput.split('-');
         formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`;
     }
     
-    // Mesaj Şablonu Oluşturma
-    let text = `✨ **YENİ ÖZEL SİPARİŞ TALEBİ** ✨\n\n`;
+    // Mesaj Taslağı
+    let text = `✨ **YENİ SİPARİŞ / BİLGİ TALEBİ** ✨\n\n`;
     text += `👤 **Müşteri Adı:** ${name}\n`;
-    text += `📅 **Teslimat Tarihi:** ${formattedDate}\n`;
-    text += `💰 **Bütçe Aralığı:** ${budget}\n`;
-    text += `🌸 **Sipariş Türü:** ${sourceType}\n`;
+    text += `📅 **Teslim Tarihi:** ${formattedDate}\n`;
+    text += `🌸 **Talep Türü:** ${sourceType}\n`;
     
     if (note) {
-        text += `📝 **Kart Notu / Detaylar:** ${note}\n`;
+        text += `📝 **Özel Not / İstekler:** ${note}\n`;
     }
     
     text += `\n*Bu sipariş talebi Lotus Çiçekçilik web sitesi üzerinden oluşturulmuştur.*`;
     
-    // WhatsApp'a Yönlendir ve Modalı Kapat
     redirectToWhatsApp(text);
     closeOrderModal();
     
-    // Formu temizle
     document.getElementById("custom-order-form").reset();
-    // Tarihi tekrar bugüne ayarla
     const today = new Date().toISOString().split('T')[0];
     document.getElementById("form-date").value = today;
 }
 
-// --- UTILITY: WHATSAPP REDIRECT ENGINE (URL ENCODER) ---
+// --- WHATSAPP URL ENCODE MOTORU ---
 function redirectToWhatsApp(text) {
-    // Özel karakterleri, emojileri ve satır atlamalarını güvenli şekilde URL'e kodlar
     const encodedText = encodeURIComponent(text);
-    
-    // Mobil ve Web uyumlu genel WhatsApp linki
     const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodedText}`;
-    
-    // Yeni sekmede yönlendirme gerçekleştirir
     window.open(waUrl, '_blank');
 }
